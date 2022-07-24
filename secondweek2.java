@@ -119,7 +119,7 @@ public class secondweek2<T> {
               throw new RuntimeException("链表为空！！！");
             }
         try {
-            if(index<0||index>size){
+            if(index<0||index>=size){
                 int[] a=new int[3];
                 a[-1]=1;
             }
@@ -149,7 +149,7 @@ public class secondweek2<T> {
     //获取输入下标对应的数据
     public T getIndex(int index) {
         try {
-            if(index<0||index>size){
+            if(index<0||index>=size){
                 int[] a=new int[3];
                 a[-1]=1;
             }
