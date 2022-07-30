@@ -33,7 +33,7 @@ class book extends Lost
         this.type=type;
     }
 }
-class firstweek {
+class Solution {
     public static int testDateCompare(String s, String s1)  {
         try {
             SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");    //按标准时间输入
