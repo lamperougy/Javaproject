@@ -64,7 +64,7 @@ public interface UserDao {
      * @param id 当前页面
      * @return List<Comment>
      */
-    @Select("select * from t_comment where id=#{id}")
+    @Select("select * from t_comment where comments_user_id=#{id}")
     List<Comment> getCommentById(Integer id);
 
     /**
@@ -81,7 +81,7 @@ public interface UserDao {
      * @param id 当前页面
      * @return List<Topic>
      */
-    @Select("select * from t_topic where id=#{id}")
+    @Select("select * from t_topic where topics_user_id=#{id}")
     List<Topic> getTopicById(Integer id);
 
 }
