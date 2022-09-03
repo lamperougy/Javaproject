@@ -56,4 +56,11 @@ public class TopicController {
 		services.getIndexFreshTopic(request);
 		return "indexFreshTopic";
 	}
+	//更新帖子
+	@RequestMapping("/updateTopic.do")
+	@ResponseBody
+	public String update(Integer id,Integer user_id,String content){
+		services.updateTopic(id,user_id,content);
+		return "update successfully";
+	}
 }
