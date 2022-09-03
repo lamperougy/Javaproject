@@ -32,9 +32,17 @@ public class CommentController {
 
     // 删除评论信息
     @RequestMapping("/comment_Delete.do")
-   // @ResponseBody
+   //@ResponseBody
     public String delete(Integer commentId, Integer topicId) {
         services.deleteComment(commentId, topicId);
         return "redirect:topic_goTopic.do?id=" + topicId;
+    }
+
+    //更新评论
+    @RequestMapping("/updateComment.do")
+    @ResponseBody
+    public String update(Integer id,Integer user_id,String content){
+       services.updateComment(id,user_id,content);
+       return "update successfully";
     }
 }
