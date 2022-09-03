@@ -39,12 +39,16 @@ public interface TopicDao {
 
 
     /**
-     * 后台修改帖子不为精帖
+     * 更新帖子
      *
-     * @param topic
+     * @param id
+     * @param topics_user_id
+     * @param content
      * @return
      */
-    int update(Topic topic);
+    @Update("update t_topic set content=#{content} where id=#{id} and topics_user_id=#{topics_user_id}")
+    @ResultMap("com.tmf.bbs.mappers.postMap.topicBean")
+    int updateTopic(Integer id,Integer topics_user_id,String content);
 
     /**
      * 全部帖子查询方法
