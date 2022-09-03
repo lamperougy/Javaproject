@@ -20,4 +20,6 @@ public interface CommentServices {
 	void deleteComment(Integer commentId, Integer topicId);
 
 	void addComment(HttpServletRequest request, HttpServletResponse response, String content, Integer floor, Date comment_time, Integer comments_user_id, Integer comments_topic_id);
+
+	void updateComment(Integer id,Integer user_id,String content);
 }
