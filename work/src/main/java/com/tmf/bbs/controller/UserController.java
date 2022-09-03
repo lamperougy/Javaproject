@@ -26,6 +26,7 @@ public class UserController {
     }
     //注册
     @RequestMapping(value = "/user_Regist.do")    //注册后就创建账号，不需要重复验证
+    //@ResponseBody
     public String regist(HttpServletRequest request, HttpServletResponse response, String username, String password) {
         if (services.saveUser(request, response, username, password)) {
             return "WEB-INF/regist";
