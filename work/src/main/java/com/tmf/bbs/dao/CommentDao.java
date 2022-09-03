@@ -1,10 +1,7 @@
 package com.tmf.bbs.dao;
 
 import com.tmf.bbs.entity.Comment;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -59,10 +56,13 @@ public interface CommentDao {
     /**
      * 更新回复
      *
-     * @param comment
+     * @param id
+     * @param comments_user_id
+     * @param content
      * @return
      */
-    int update(Comment comment);
+    @Update("update t_comment set content=#{content} where id=#{id} and comments_user_id=#{comments_user_id}")
+    int updateComment(Integer id,Integer comments_user_id,String content);
 
     /**
      * 删除回复
