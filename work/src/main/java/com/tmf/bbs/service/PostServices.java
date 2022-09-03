@@ -11,7 +11,7 @@ public interface PostServices {
 	/**
 	 * 热门帖查询		根据点击率从大到小查询十条分页
 	 *
-	 * @param countComment
+	 * @param indexPage
 	 * @return
 	 */
 	void getHotTopic(HttpServletRequest request, Integer indexPage);
