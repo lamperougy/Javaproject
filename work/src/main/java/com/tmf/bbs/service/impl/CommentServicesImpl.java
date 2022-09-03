@@ -36,5 +36,12 @@ public class CommentServicesImpl implements CommentServices{
 	public void addComment(HttpServletRequest request, HttpServletResponse response, String content, Integer floor, Date comment_time, Integer comments_user_id, Integer comments_topic_id) {
 		// TODO Auto-generated method stub
 		commentDao.addComment(content,floor,comment_time,comments_user_id,comments_topic_id);
+		request.setAttribute("msg","添加评论成功");
+	}
+
+	@Override
+	public void updateComment(Integer id,Integer user_id,String content){
+		// TODO Auto-generated method stub
+		commentDao.updateComment(id,user_id,content);
 	}
 }
