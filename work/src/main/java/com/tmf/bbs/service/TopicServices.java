@@ -15,4 +15,6 @@ public interface TopicServices {
 
 	//删帖
 	void deleteTopic(Integer topicId);
+
+	void updateTopic(Integer id,Integer user_id,String content);
 }
