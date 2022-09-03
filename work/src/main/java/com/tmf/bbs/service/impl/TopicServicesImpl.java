@@ -47,7 +47,7 @@ public class TopicServicesImpl implements TopicServices{
 	public void addTopic(HttpServletRequest request, HttpServletResponse response,String title,String content,Integer topics_user_id){
 		// TODO Auto-generated method stub
 		topicDao.addTopic(request,response,title,content,topics_user_id);
-		request.setAttribute("addTopic",topic);
+		request.setAttribute("msg","添加问题成功");
 	}
 	//删帖
 	@Override
@@ -55,5 +55,10 @@ public class TopicServicesImpl implements TopicServices{
 		// TODO Auto-generated method stub
 		topicDao.deleteTopic(topicId);
 	}
-	
+
+	@Override
+	public void updateTopic(Integer id,Integer user_id,String content){
+		// TODO Auto-generated method stub
+		topicDao.updateTopic(id,user_id,content);
+	}
 }
