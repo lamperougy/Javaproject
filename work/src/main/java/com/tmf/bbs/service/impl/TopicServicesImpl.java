@@ -44,9 +44,9 @@ public class TopicServicesImpl implements TopicServices{
 	}
 	//发帖
 	@Override
-	public void addTopic(HttpServletRequest request, HttpServletResponse response,String title,String content,Integer topics_user_id){
+	public void addTopic(HttpServletRequest request, HttpServletResponse response,String title,String content,Integer topics_user_id,String password){
 		// TODO Auto-generated method stub
-		topicDao.addTopic(request,response,title,content,topics_user_id);
+		topicDao.addTopic(request,response,title,content,topics_user_id,password);
 		request.setAttribute("msg","添加问题成功");
 	}
 	//删帖
@@ -57,8 +57,8 @@ public class TopicServicesImpl implements TopicServices{
 	}
 
 	@Override
-	public void updateTopic(Integer id,Integer user_id,String content){
+	public void updateTopic(Integer id,Integer topics_user_id,String content,String password){
 		// TODO Auto-generated method stub
-		topicDao.updateTopic(id,user_id,content);
+		topicDao.updateTopic(id,topics_user_id,content,password);
 	}
 }
