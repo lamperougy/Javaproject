@@ -25,7 +25,7 @@ public class TopicController {
 	@ResponseBody
 	public String add(HttpServletRequest request, HttpServletResponse response,String title,String content,Integer topics_user_id,String password){
        services.addTopic(request,response,title,content,topics_user_id,password);
-	   return "add successfully";
+	   return "add";
 	}
 	//删帖
 	@RequestMapping("/topic_deleteTopic.do")
@@ -61,6 +61,6 @@ public class TopicController {
 	@ResponseBody
 	public String update(Integer id,Integer topics_user_id,String content,String password){
 		services.updateTopic(id,topics_user_id,content,password);
-		return "update successfully";
+		return "update";
 	}
 }
