@@ -43,8 +43,11 @@ public class UserController {
     //通过ID查询帖子、回复
     @RequestMapping("/getById.do")
     @ResponseBody
-    public String getById(HttpServletRequest request,Integer id){
-        services.getById(request,id);
-        return "successfully get";
+    public String getById(HttpServletRequest request,Integer id,String password){
+        services.getById(request,id,password);
+        if(id==null||password==null){
+            return "noGet";
+        }
+        return "get";
     }
 }
