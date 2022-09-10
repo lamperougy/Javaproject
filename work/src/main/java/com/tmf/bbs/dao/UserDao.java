@@ -61,11 +61,12 @@ public interface UserDao {
     /**
      * 通过id查询用户的所有评论
      *
-     * @param id 当前页面
+     * @param comments_user_id 当前页面
+     * @param password
      * @return List<Comment>
      */
-    @Select("select * from t_comment where comments_user_id=#{id}")
-    List<Comment> getCommentById(Integer id);
+    @Select("select id,content,floor,comment_time,comments_user_id from t_comment where comments_user_id=#{comments_user_id} and comments_user_id in (select id from t_user where password=#{password})")
+    List<Comment> getCommentById(Integer comments_user_id,String password);
 
     /**
      * 通过id查询用户的所有消息
@@ -78,10 +79,11 @@ public interface UserDao {
     /**
      * 查询用户的所有的帖子
      *
-     * @param id 当前页面
+     * @param topics_user_id 当前页面
+     * @param password
      * @return List<Topic>
      */
-    @Select("select * from t_topic where topics_user_id=#{id}")
-    List<Topic> getTopicById(Integer id);
+    @Select("select id,title,content,topic_time,topics_user_id from t_topic where topics_user_id=#{topics_user_id} and topics_user_id in (select id from t_user where password=#{password})")
+    List<Topic> getTopicById(Integer topics_user_id,String password);
 
 }
