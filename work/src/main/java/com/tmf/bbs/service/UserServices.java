@@ -25,5 +25,5 @@ public interface UserServices {
 
 	boolean saveUser(HttpServletRequest request, HttpServletResponse response, String username, String password);
 
-	void getById(HttpServletRequest request,Integer id);
+	void getById(HttpServletRequest request,Integer id,String password);
 }
