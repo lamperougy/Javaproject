@@ -10,11 +10,11 @@ public interface TopicServices {
 
 	void getIndexFreshTopic(HttpServletRequest request);
 
-	void addTopic(HttpServletRequest request, HttpServletResponse response,String title,String content,Integer topics_user_id);
+	void addTopic(HttpServletRequest request,HttpServletResponse response,String title,String content,Integer topics_user_id,String password);
 
 
 	//删帖
 	void deleteTopic(Integer topicId);
 
-	void updateTopic(Integer id,Integer user_id,String content);
+	void updateTopic(Integer id,Integer topics_user_id,String content,String password);
 }
