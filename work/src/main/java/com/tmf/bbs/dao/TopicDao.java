@@ -25,9 +25,9 @@ public interface TopicDao {
      * @param response
      * @return
      */
-    @Insert("insert into t_topic(title,content,topics_user_id)values(#{title},#{content},#{topics_user_id}")
+    @Insert("insert into t_topic(title,content,topics_user_id)values(#{title},#{content},#{topics_user_id}) where topics_user_id in (select id from t_user where password=#{password})")
     @ResultMap("com.tmf.bbs.mappers.postMap.topicBean")
-    int addTopic(HttpServletRequest request, HttpServletResponse response, @Param("title")String title, @Param("content")String content, @Param("topics_user_id")Integer topics_user_id);
+    int addTopic(HttpServletRequest request,HttpServletResponse response, @Param("title")String title, @Param("content")String content, @Param("topics_user_id")Integer topics_user_id,@Param("password")String password);
 
     /**
      * 后台修改帖子为精帖
@@ -44,11 +44,12 @@ public interface TopicDao {
      * @param id
      * @param topics_user_id
      * @param content
+     * @param password
      * @return
      */
-    @Update("update t_topic set content=#{content} where id=#{id} and topics_user_id=#{topics_user_id}")
+    @Update("update t_topic set content=#{content} where id=#{id} and topics_user_id=#{topics_user_id} and topics_user_id in (select id from t_user where password=#{password})")
     @ResultMap("com.tmf.bbs.mappers.postMap.topicBean")
-    int updateTopic(Integer id,Integer topics_user_id,String content);
+    int updateTopic(Integer id,Integer topics_user_id,String content,String password);
 
     /**
      * 全部帖子查询方法
