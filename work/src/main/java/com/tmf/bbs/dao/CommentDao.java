@@ -48,10 +48,11 @@ public interface CommentDao {
      * @param comment_time
      * @param comments_user_id
      * @param comments_topic_id
+     * @param password
      * @return
      */
-    @Insert("insert into t_comment(content,floor,comment_time,comments_user_id,comments_topic_id) values(#{content},#{floor},#{now()},#{comments_user_id},#{comments_topic_id})")
-    int addComment(String content, Integer floor, Date comment_time, Integer comments_user_id,Integer comments_topic_id);
+    @Insert("insert into t_comment(content,floor,comment_time,comments_user_id,comments_topic_id) values(#{content},#{floor},#{now()},#{comments_user_id},#{comments_topic_id}) where comments_user_id in (select id from t_user where password=#{password})")
+    int addComment(String content, Integer floor, Date comment_time, Integer comments_user_id,Integer comments_topic_id,String password);
 
     /**
      * 更新回复
@@ -59,10 +60,11 @@ public interface CommentDao {
      * @param id
      * @param comments_user_id
      * @param content
+     * @param password
      * @return
      */
-    @Update("update t_comment set content=#{content} where id=#{id} and comments_user_id=#{comments_user_id}")
-    int updateComment(Integer id,Integer comments_user_id,String content);
+    @Update("update t_comment set content=#{content} where id=#{id} and comments_user_id=#{comments_user_id} and comments_user_id in (select id from t_user where password=#{password})")
+    int updateComment(Integer id,Integer comments_user_id,String content,String password);
 
     /**
      * 删除回复
