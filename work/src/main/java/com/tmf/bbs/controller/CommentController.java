@@ -25,8 +25,8 @@ public class CommentController {
     // 添加评论
     @RequestMapping("/addComment.do")
     @ResponseBody
-    public String add(HttpServletRequest request, HttpServletResponse response, String content, Integer floor, Date comment_time, Integer comments_user_id, Integer comments_topic_id) {
-        services.addComment(request,response,content,floor,comment_time,comments_user_id,comments_topic_id);
+    public String add(HttpServletRequest request,HttpServletResponse response,String content,Integer floor,Date comment_time,Integer comments_user_id,Integer comments_topic_id,String password) {
+        services.addComment(request,response,content,floor,comment_time,comments_user_id,comments_topic_id,password);
         return "add successfuly";
     }
 
@@ -41,8 +41,8 @@ public class CommentController {
     //更新评论
     @RequestMapping("/updateComment.do")
     @ResponseBody
-    public String update(Integer id,Integer user_id,String content){
-       services.updateComment(id,user_id,content);
+    public String update(Integer id,Integer comments_user_id,String content,String password){
+       services.updateComment(id,comments_user_id,content,password);
        return "update successfully";
     }
 }
